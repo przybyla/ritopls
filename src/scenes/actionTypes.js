@@ -1,0 +1,3 @@
+export const GET_SUMMONER = 'GET_SUMMONER';
+export const SET_SUMMONER = 'SET_SUMMONER';
+export const SET_FETCH_STATUS = 'SET_FETCH_STATUS';
