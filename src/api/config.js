@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 
 export const API_KEY = '?api_key=RGAPI-19c72b06-487c-46c5-872b-e9f869b444cc';
-export const SUMMONER_NAME = '/lol/summoner/v3/summoners/by-name/Furek';
+export const SUMMONER_NAME = '/lol/summoner/v3/summoners/by-name/';
 export const CHAMPION_MASTERY =
   '/lol/champion-mastery/v3/champion-masteries/by-summoner/';
 

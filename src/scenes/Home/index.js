@@ -5,14 +5,12 @@ import * as actions from '../actions';
 class Home extends Component {
   porps: PropsType;
 
-  componentDidMount = () => {
-    this.props.getSummoner();
-  };
-
   render() {
+    const { handleInputChange, getSummoner } = this.props;
     return (
       <div>
-        <button onClick={() => this.props.getChampionMastery()}> KLIK </button>
+        <input onChange={e => handleInputChange(e.target.value)} type="text" />
+        <button onClick={() => getSummoner()}> Szukaj </button>
       </div>
     );
   }

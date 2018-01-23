@@ -3,10 +3,16 @@ import * as actions from '../scenes/actions';
 import { API_KEY, SUMMONER_NAME, CHAMPION_MASTERY } from '../api/config';
 
 export function* getSummoner(api: () => Object): Generator<*, *, *> {
+  const state = yield select();
+  const summoner = state.summoner.get('input');
   yield put(actions.setFetchStatus('getSummoner', 'processing'));
-  const { response } = yield call(api, `${SUMMONER_NAME}${API_KEY}`, {
-    method: 'GET'
-  });
+  const { response } = yield call(
+    api,
+    `${SUMMONER_NAME}${summoner}${API_KEY}`,
+    {
+      method: 'GET'
+    }
+  );
   if (response && !response.error) {
     const json = yield response.json();
     yield put(actions.setFetchStatus('getSummoner', 'success'));

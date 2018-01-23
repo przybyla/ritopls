@@ -13,13 +13,12 @@ export function setSummoner(payload: PayloadType): ActionReturnType {
     payload
   };
 }
-
-export function getSummoner(): ActionReturnType {
+export function getSummoner(payload: PayloadType): ActionReturnType {
   return {
-    type: types.GET_SUMMONER
+    type: types.GET_SUMMONER,
+    payload
   };
 }
-
 export function getChampionMastery(): ActionReturnType {
   return {
     type: types.GET_CHAMPION_MASTERY
@@ -28,6 +27,12 @@ export function getChampionMastery(): ActionReturnType {
 export function setChampionMastery(payload: PayloadType): ActionReturnType {
   return {
     type: types.SET_CHAMPION_MASTERY,
+    payload
+  };
+}
+export function handleInputChange(payload: PayloadType): ActionReturnType {
+  return {
+    type: types.HANDLE_INPUT_CHANGE,
     payload
   };
 }
