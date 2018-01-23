@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import TextField from 'material-ui/TextField';
+import FlatButton from 'material-ui/FlatButton';
 import * as actions from '../actions';
+import { MainWrapper, SearchWrapper } from './styled';
 
 class Home extends Component {
   porps: PropsType;
@@ -8,10 +11,15 @@ class Home extends Component {
   render() {
     const { handleInputChange, getSummoner } = this.props;
     return (
-      <div>
-        <input onChange={e => handleInputChange(e.target.value)} type="text" />
-        <button onClick={() => getSummoner()}> Szukaj </button>
-      </div>
+      <MainWrapper>
+        <SearchWrapper>
+          <TextField
+            hintText="Enter username"
+            onChange={e => handleInputChange(e.target.value)}
+          />
+          <FlatButton label="Search" onClick={() => getSummoner()} />
+        </SearchWrapper>
+      </MainWrapper>
     );
   }
 }
