@@ -10,7 +10,11 @@ class Home extends Component {
   };
 
   render() {
-    return <div />;
+    return (
+      <div>
+        <button onClick={() => this.props.getChampionMastery()}> KLIK </button>
+      </div>
+    );
   }
 }
 

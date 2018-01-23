@@ -74,6 +74,10 @@
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
 
+"@types/node@^9.3.0":
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-9.3.0.tgz#3a129cda7c4e5df2409702626892cb4b96546dd5"
+
 "@types/react@^15.0.22":
   version "15.6.11"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-15.6.11.tgz#c61440937ccf970446cb3ef77007b450ab1e2f91"
@@ -5697,6 +5701,13 @@ node-pre-gyp@^0.6.36, node-pre-gyp@^0.6.39:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
+node-request-proxy@0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/node-request-proxy/-/node-request-proxy-0.1.4.tgz#141b1573969aa05692d024f93498e4b3885a50c0"
+  dependencies:
+    "@types/node" "^9.3.0"
+    ntypescript "^1.201706190042.1"
+
 node-status-codes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-status-codes/-/node-status-codes-1.0.0.tgz#5ae5541d024645d32a58fcddc9ceecea7ae3ac2f"
@@ -5797,6 +5808,10 @@ nth-check@~1.0.1:
   resolved "https://registry.yarnpkg.com/nth-check/-/nth-check-1.0.1.tgz#9929acdf628fc2c41098deab82ac580cf149aae4"
   dependencies:
     boolbase "~1.0.0"
+
+ntypescript@^1.201706190042.1:
+  version "1.201706190042.1"
+  resolved "https://registry.yarnpkg.com/ntypescript/-/ntypescript-1.201706190042.1.tgz#866ae9cc36688b141606156ed0bcc35cdf536271"
 
 num2fraction@^1.2.2:
   version "1.2.2"

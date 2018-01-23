@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17",
     "babel-preset-stage-3": "^6.24.1",
     "bootstrap": "4.0.0-alpha.6",
     "immutable": "^3.8.1",
     "jest": "^21.2.1",
+    "node-request-proxy": "0.1.4",
     "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "react-helmet": "^5.2.0",
     "react-redux": "^5.0.3",
     "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17",
     "redux": "^3.7.2",
     "redux-saga": "^0.15.6",
     "styled-components": "^2.2.3",
@@ -46,7 +47,8 @@
     "semantic-release": "^11.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start":
+      "node ./node_modules/node-request-proxy/server.js | react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

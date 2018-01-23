@@ -9,7 +9,7 @@ export type ActionType = {
 };
 
 export const initialState = Map({
-  sumonner: Map({})
+  summoner: Map({})
 });
 
 export const summoner = (
@@ -18,7 +18,9 @@ export const summoner = (
 ) => {
   switch (action.type) {
     case type.SET_SUMMONER:
-      return state.set('sumonner', fromJS(action.payload));
+      return state.set('summoner', fromJS(action.payload));
+    case type.SET_CHAMPION_MASTERY:
+      return state.set('summonerChampionMastery', fromJS(action.payload));
     case type.SET_FETCH_STATUS:
       return state.setIn(['fetchStatus', action.payload[0]], action.payload[1]);
     default:
