@@ -30,6 +30,17 @@ export function setChampionMastery(payload: PayloadType): ActionReturnType {
     payload
   };
 }
+export function getRecentHistory(): ActionReturnType {
+  return {
+    type: types.GET_RECENT_HISTORY
+  };
+}
+export function setRecentHistory(payload: PayloadType): ActionReturnType {
+  return {
+    type: types.SET_RECENT_HISTORY,
+    payload
+  };
+}
 export function handleInputChange(payload: PayloadType): ActionReturnType {
   return {
     type: types.HANDLE_INPUT_CHANGE,

@@ -8,8 +8,14 @@ import { MainWrapper, SearchWrapper } from './styled';
 class Home extends Component {
   porps: PropsType;
 
+  getSummonerPage = () => {
+    this.props.getSummoner();
+    this.props.history.push(`/summoner/${this.props.summoner.input}`);
+  };
+
   render() {
-    const { handleInputChange, getSummoner } = this.props;
+    const { handleInputChange } = this.props;
+    const { getSummonerPage } = this;
     return (
       <MainWrapper>
         <SearchWrapper>
@@ -17,7 +23,7 @@ class Home extends Component {
             hintText="Enter username"
             onChange={e => handleInputChange(e.target.value)}
           />
-          <FlatButton label="Search" onClick={() => getSummoner()} />
+          <FlatButton label="Search" onClick={() => getSummonerPage()} />
         </SearchWrapper>
       </MainWrapper>
     );

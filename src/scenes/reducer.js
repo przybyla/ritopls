@@ -1,4 +1,4 @@
-import { Map, fromJS } from 'immutable';
+import { Map, List, fromJS } from 'immutable';
 import * as type from './actionTypes';
 
 export type StateType = Map<string, any>;
@@ -9,7 +9,9 @@ export type ActionType = {
 };
 
 export const initialState = Map({
-  summoner: Map({})
+  summoner: Map({}),
+  summonerChampionMastery: List([]),
+  recentHistory: Map({})
 });
 
 export const summoner = (
@@ -21,6 +23,8 @@ export const summoner = (
       return state.set('summoner', fromJS(action.payload));
     case type.SET_CHAMPION_MASTERY:
       return state.set('summonerChampionMastery', fromJS(action.payload));
+    case type.SET_RECENT_HISTORY:
+      return state.set('recentHistory', fromJS(action.payload));
     case type.HANDLE_INPUT_CHANGE:
       return state.set('input', action.payload);
     case type.SET_FETCH_STATUS:
