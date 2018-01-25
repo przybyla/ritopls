@@ -1,6 +1,11 @@
 import { put, call, select } from 'redux-saga/effects';
 import * as actions from '../scenes/actions';
-import { API_KEY, SUMMONER_NAME, CHAMPION_MASTERY } from '../api/config';
+import {
+  API_KEY,
+  SUMMONER_NAME,
+  CHAMPION_MASTERY,
+  MATCH_LIST
+} from '../api/config';
 
 export function* getSummoner(api: () => Object): Generator<*, *, *> {
   const state = yield select();
@@ -27,7 +32,6 @@ export function* getChampionMastery(
 ): Generator<*, *, *> {
   const state = yield select();
   const summonerId = state.summoner.getIn(['summoner', 'id']);
-  console.log(summonerId);
   yield put(actions.setFetchStatus('getChampionMastery', 'processing'));
   const { response } = yield call(
     api,
@@ -42,5 +46,28 @@ export function* getChampionMastery(
     yield put(actions.setChampionMastery(json));
   } else {
     yield put(actions.setFetchStatus('getChampionMastery', 'error'));
+  }
+}
+
+export function* getRecentHistory(
+  api: () => Object,
+  action
+): Generator<*, *, *> {
+  const state = yield select();
+  const accountId = state.summoner.getIn(['summoner', 'accountId']);
+  yield put(actions.setFetchStatus('getRecentHistory', 'processing'));
+  const { response } = yield call(
+    api,
+    `${MATCH_LIST}${accountId}/recent${API_KEY}`,
+    {
+      method: 'GET'
+    }
+  );
+  if (response && !response.error) {
+    const json = yield response.json();
+    yield put(actions.setFetchStatus('getRecentHistory', 'success'));
+    yield put(actions.setRecentHistory(json));
+  } else {
+    yield put(actions.setFetchStatus('getRecentHistory', 'error'));
   }
 }
